@@ -1,0 +1,5 @@
+pytest
+rich
+black
+flake8
+pygame

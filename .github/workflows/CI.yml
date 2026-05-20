@@ -1,0 +1,17 @@
+name: CI pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verificar proyecto
+        run: echo "Proyecto en funcionamiento"
