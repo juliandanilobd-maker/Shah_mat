@@ -4,12 +4,17 @@
 
 Flujo de datos en arquitectura
 
-1. [JUGADOR] ---Entrada de datos---> [UI]
-2. [UI] ---captura el evento---> [Domain] 
-                                      └──[GameController] ---> procesa los datos
-3. [Board] ---actualiza estado---> [CombatSystem]
-4. [CombatSystem] ---calcula el daño---> [Storage]
-5. [Storage] ---guarda datos---> [UI] ---> genera los cambios en el tablero y piezas
+1. [JUGADOR]
+       ↓
+2. [UI(View)]
+       ↓ eventos
+3. [APPLICATION (Controllers/Services)]
+       ↓ llamadas
+4. [DOMAIN (Rules, Board, Units, Combat, AI)]
+       ↓ resultados
+5. [APPLICATION]
+       ↓ decide persistencia
+6. [STORAGE]
 
 Estructura Principal
 Sitrang/
