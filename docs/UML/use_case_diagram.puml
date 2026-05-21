@@ -1,0 +1,43 @@
+@startuml Caso de Uso
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Jugador" as player
+
+rectangle "Sistema de Videojuego Táctico" {
+    ' Casos de Uso Principales (Centro)
+    usecase "Iniciar Partida" as UC_Start
+    usecase "Configurar Partida" as UC_Config
+    usecase "Seleccionar Unidad" as UC_Select
+    usecase "Mover Unidad" as UC_Move
+    usecase "Atacar Enemigo" as UC_Attack
+    usecase "Finalizar Turno" as UC_EndTurn
+    usecase "Registrar Puntuación" as UC_Score
+    usecase "Consultar Mejores Puntuaciones" as UC_Leaderboard
+    usecase "Jugar contra CPU" as UC_CPU
+
+    ' Subprocesos (Derecha)
+    usecase "Validar Movimiento" as UC_ValMove
+    usecase "Validar Rango" as UC_ValRange
+    usecase "Cargar Partida Guardada" as UC_Load
+}
+
+' Conexiones del Actor (Izquierda)
+player --> UC_Start
+player --> UC_Config
+player --> UC_Select
+player --> UC_Move
+player --> UC_Attack
+player --> UC_EndTurn
+player --> UC_Score
+player --> UC_Leaderboard
+player --> UC_CPU
+
+' Relaciones de Inclusión y Extensión (Derecha)
+UC_Move ..> UC_ValMove : <<include>>
+UC_Attack ..> UC_ValRange : <<include>>
+
+UC_Load ..> UC_Start : <<extend>>
+UC_CPU ..> UC_Config : <<extend>>
+
+@enduml

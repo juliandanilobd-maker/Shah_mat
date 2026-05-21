@@ -1,5 +1,6 @@
 from app.domain.player.player import Player
 
+
 class AIPlayer(Player):
 
     def get_action(self):

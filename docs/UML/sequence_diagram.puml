@@ -1,0 +1,63 @@
+@startuml Diagrama de Secuencia
+skinparam style strictuml
+autonumber
+
+actor Jugador
+participant "UI" as UI
+participant "GameService" as GS
+participant "Board" as B
+participant "CombatSystem" as CS
+participant "Unit" as U
+participant "SaveManager" as SM
+
+== Fase de Movimiento ==
+Jugador -> UI: Seleccionar unidad y destino
+UI -> GS: request_move(unit_id, target_tile)
+
+activate GS
+
+GS -> B: validate_movement(unit, target_tile)
+
+activate B
+
+B --> GS: movement_valid
+
+deactivate B
+
+GS -> B: move_unit(unit, target_tile)
+GS -> UI: update_board()
+
+deactivate GS
+
+== Fase de Ataque ==
+Jugador -> UI: seleccionar enemigo a atacar
+UI -> GS: request_attack(attacker_id, target_id)
+
+activate GS
+
+GS -> CS: validate_attack(attacker, defender)
+
+activate CS
+
+CS --> GS: attack_valid
+GS -> CS: calculate_damage(attacker, defender)
+CS -> U: receive_damage(amount)
+
+activate U
+
+U --> CS: damage_applied
+
+deactivate U
+
+CS --> GS: attack_resolved
+
+deactivate CS
+
+GS -> UI: update_board()
+
+deactivate GS
+
+== Fase de Guardado ==
+GS -> SM: save_match()
+
+@enduml

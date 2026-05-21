@@ -30,15 +30,15 @@ Construir la base del juego
 ## Historia 1.1 - Base inicial
 
 ### Prioridad: ALTA.
-### Estado: EN CURSO.
+### Estado: COMPLETADO.
 
 #### Descripción
 Como jugador lo primero es iniciar una partida, para comenzar el juego.
 
 ### Criterios de aceptación
-- [] Crear menú principal.
-- [] Crear inicialización de partida.
-- [] Configurar tablero inicial.
+- [x] Crear menú principal.
+- [x] Crear inicialización de partida.
+- [x] Configurar tablero inicial.
 
 ## Historia 1.2 - Configurar tablero
 
@@ -51,7 +51,7 @@ Como jugador, necesito ver el tablero para entender el juego.
 ### Criterios de aceptación
 - [] Renderizar tablero.
 - [] Mostrar posiciones.
-- [] Actualizar el tablero.
+- [x] Actualizar el tablero.
 
 # EPICA 2 - Sistema de turnos
 
@@ -61,15 +61,15 @@ Crear el sistema que maneja los turnos, cuando inician, cuando se acaban, pasa a
 ## Historia 2.1 - Base del turno
 
 ### Prioridad: ALTA.
-### Estado: EN CURSO.
+### Estado: COMPLETADO.
 
 #### Descripción
 Como jugador, necesito moverme por turnos
 
 ### Criterios de aceptación
-- [] Implementar control de turnos.
-- [] Validar el jugador activo.
-- [] Alternar entre jugadores.
+- [x] Implementar control de turnos.
+- [x] Validar el jugador activo.
+- [x] Alternar entre jugadores.
 
 # EPICA 3 - Movimiento y reglas
 
@@ -79,7 +79,7 @@ Generar la lógica y manejo de los movimientos de las piezas en el juego.
 ## Historia 3.1 - Primeros movimientos
 
 ### Prioridad: ALTA.
-### Estado: EN CURSO.
+### Estado: PENDIENTE.
 
 #### Descripción
 Como jugador, es necesario para jugar el juego, que las piezas se muevan en base a reglas.
@@ -92,7 +92,7 @@ Como jugador, es necesario para jugar el juego, que las piezas se muevan en base
 ## Historia 3.2 - Interacciones de piezas
 
 ### Prioridad: ALTA.
-### Estado: EN CURSO.
+### Estado: PENDIENTE.
 
 #### Descripción
 Como desarrollador es necesario validar las reglas del juego, para mantener la coherencia con las interacciones.
@@ -110,7 +110,7 @@ Crear persistencia de datos que asegure el mantenimiento de la partida y el regi
 ## Historia 4.1 - Almacenamiento de datos
 
 ### Prioridad: ALTA.
-### Estado: EN CURSO.
+### Estado: PENDIENTE.
 
 #### Descripción
 Como jugador me gustaria poder continuar una partida que deje a medias, y que se guarden los mejores puntajes
@@ -129,7 +129,7 @@ Crear funciones de testing que permitan valorar el correcto funcionamiento de ob
 ## Historia 5.1 - Pruebas unitarias
 
 ### Prioridad: ALTA.
-### Estado: EN CURSO.
+### Estado: PENDIENTE.
 
 #### Descripción
 Como desarrollador, es fundamental pruebas unitarias para validar el funcionamiento.
