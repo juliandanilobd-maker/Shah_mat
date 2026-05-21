@@ -29,6 +29,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install -e
 
       - name: Verificar formato con Black
         run: |
@@ -39,6 +40,6 @@ jobs:
           flake8 .
 
       - name: Ejecutar pruebas unitarias
-        run: pytest
+        run: python -m pytest
         env:
           PYTHONPATH: ${{github.workspace}}
