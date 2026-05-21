@@ -6,7 +6,4 @@ class CombatSystem:
 
     def prepare_attack(self, action):
 
-        return {
-            "type":"DAMAGE", 
-            "data": action
-        }
+        return {"type": "DAMAGE", "data": action}

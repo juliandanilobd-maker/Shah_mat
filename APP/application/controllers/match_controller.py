@@ -1,5 +1,6 @@
 from app.domain.match.match import Match
 
+
 class MatchController:
 
     def __init__(self, mode):
@@ -30,5 +31,3 @@ class MatchController:
 
         print("FIN DE LA PARTIDA")
         self.match.finish()
-
-        
