@@ -29,5 +29,7 @@ class MatchController:
 
             self.match.turn_manager.next_turn()
 
+            return result
+
         print("FIN DE LA PARTIDA")
         self.match.finish()

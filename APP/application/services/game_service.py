@@ -1,4 +1,3 @@
-from app.domain.match.match import Match
 from app.application.controllers.match_controller import MatchController
 from app.UI.menu.menu_manager import MenuManager
 

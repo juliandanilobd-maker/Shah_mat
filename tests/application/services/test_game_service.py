@@ -13,7 +13,8 @@ def test_game_service_initializes_menu(mock_menu):
     assert service.menu == mock_menu.return_value
 
 
-# Prueba para determinar si se inicia correctamente el controlador del juego, llamado PVP
+# Prueba para determinar si se inicia correctamente
+# el controlador del juego, llamado PVP
 @patch("app.application.services.game_service.MatchController")
 def test_start_match_creates_controller(mock_controller):
 

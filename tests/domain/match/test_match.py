@@ -1,7 +1,3 @@
-from app.domain.match.match import Match
-from tests.conftest import sample_match
-
-
 # Prueba para determinar si se inicializa la partida
 def test_match_initialization(sample_match):
 

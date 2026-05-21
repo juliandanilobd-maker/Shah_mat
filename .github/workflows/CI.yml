@@ -32,7 +32,7 @@ jobs:
 
       - name: Verificar formato con Black
         run: |
-          black .
+          black --check .
 
       - name: Verificar estilo con Flake8
         run: |
