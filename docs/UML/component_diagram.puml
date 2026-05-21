@@ -1,0 +1,28 @@
+@startuml Diagrama de Componentes
+skinparam componentStyle uml2
+
+package "Capa de Presentación" {
+    [UI]
+    [Audiovisual]
+}
+
+package "Capa de Aplicación" {
+    [Application]
+}
+
+package "Capa de Dominio" {
+    [Domain]
+}
+
+package "Capa de Infraestructura" {
+    [Storage]
+}
+
+' Dependencias Unidireccionales
+[UI] --> [Application] : "Envía inputs / eventos / Gestiona interacciones del usuario"
+[UI] --> [Audiovisual] : "Renderiza recursos"
+
+[Application] --> [Domain] : "Coordina reglas y lógica del juego"
+[Application] --> [Storage] : "Solicita persistencia"
+
+@enduml

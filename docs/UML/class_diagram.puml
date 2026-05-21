@@ -1,0 +1,125 @@
+@startuml Diagrama de clase
+skinparam style strictuml
+skinparam ClassAttributeIconSize 0
+skinparam linetype ortho
+
+' --- Capa de Servicios y Control (Arriba / Lateral) ---
+class GameService {
+    - match: Match
+    - combat_system: CombatSystem
+    + process_move()
+    + process_attack()
+    + save_game()
+}
+
+class TurnManager {
+    - current_turn: int
+    - active_player: Player
+    + switch_turn()
+    + validate_turn()
+}
+
+class CombatSystem {
+    + calculate_damage(attacker: Unit, defender: Unit): int
+    + validate_attack(attacker: Unit, defender: Unit): boolean
+}
+
+class AIEngine {
+    + choose_move(match: Match)
+    + evaluate_board(board: Board): float
+}
+
+class SaveManager {
+    + save_match(match: Match)
+    + load_match(): Match
+}
+
+' --- Núcleo Principal (Arriba / Centro) ---
+class Match {
+    - players: Player[]
+    - board: Board
+    - turn_manager: TurnManager
+    - game_state: String
+    + start_match()
+    + end_match()
+    + check_victory() 
+}
+
+abstract class Player <<ABC>> {
+    + choose_move(match: Match)
+}
+
+class HumanPlayer
+class AIPlayer
+
+' --- El Tablero ---
+class Board {
+    - grid: Tile[][]
+    + move_unit(from: Tile, to: Tile)
+    + get_tile(x: int, y: int): Tile
+    + place_unit(unit: Unit, tile: Tile)
+}
+
+class Tile {
+    - position: String
+    - terrain_type: String
+    - occupant: Unit
+    + is_occupied(): boolean
+}
+
+' --- Las Unidades (Abajo) ---
+abstract class Unit <<ABC>> {
+    - health: int
+    - attack: int
+    - defense: int
+    - movement_range: int
+    - owner: Player
+    + move()
+    + attack()
+    + receive_damage(damage: int)
+}
+
+class King {
+    + special_ability()
+}
+
+class LightCavalry {
+    + special_ability()
+}
+
+class HeavyCavalry  {
+    + special_ability()
+}
+
+class Lancer {
+    + special_ability()
+}
+
+' --- Relaciones Estrictas ---
+Match *-- Board
+Match *-- TurnManager
+
+Board *-- Tile
+Tile --> Unit
+
+Player "1" --- "*" Unit
+
+GameService --> Match
+GameService --> CombatSystem
+GameService --> SaveManager
+
+CombatSystem ..> Unit
+
+AIEngine --> Match
+
+' Herencia
+Player <|-- HumanPlayer
+Player <|-- AIPlayer
+
+Unit <|-- King
+Unit <|-- Lancer
+Unit <|-- LightCavalry
+Unit <|-- HeavyCavalry
+
+
+@enduml

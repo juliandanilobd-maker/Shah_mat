@@ -1,4 +1,4 @@
-# Arquitectura del proyecto - Sitrang
+# Arquitectura del proyecto - Throne & Treason
 
 ## Diagrama de arquitectura
 
@@ -21,14 +21,13 @@ Sitrang/
 │
 ├── .github/
 ├── app/
-│   ├── .venv/
 │   ├── ui/
 │   ├── application/
 │   ├── domain/
 │   ├── storage/
 │   ├── audiovisual/
 │   └── assets/
-│
+├── .venv/
 ├── docs/
 ├── tests/
 ├── README.md
@@ -41,7 +40,7 @@ Sitrang/
 Esta capa se encarga de la itneracción del usuario con la interfaz.
 
 **RESPONSABILIDADES:**
-- Muestra menues.
+- Navegación de menues.
 - Captura las entradas/inputs.
 - Muestra tableros, resultados, los movimientos e interacciones de piezas.
 - Gestiona la navegación en la interfaz.
@@ -95,5 +94,22 @@ Se encarga del guardado de los datos de mejores jugadores y sus puntajes.
 - FileRepository.
 - Serializer.
 
-#### Capa de Recursos
-Contiene los recursos del proyecto, animaciones, imagenes, audios.
+
+#### Capa Audiovisual
+Gestiona la representación gráfica y sonora.
+
+
+**RESPONSABILIDADES:**
+- Renderizado.
+- Animaciones.
+- Audio.
+- Efectos visuales
+
+##### Componentes
+- GameRenderer.
+- AnimationManager.
+- AudioManager.
+- EffectManager.
+
+
+
