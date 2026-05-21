@@ -1,9 +1,9 @@
-# Sitrang Juego de Estrategia
+# Throne & Treason Juego de Estrategia
 
 En este proyecto se va a desarrollar un software de simulación estregica basada en el juego de fantasía conocido como 'Sitrang', se desarrolla como proyecto academico con principios de programación de buenas practicas de programación y desarrollo.
 
 ## Descripción
-Consiste en el desarrollo de una aplicación de computadora que simula el juego de mesa 'Sitrang'. El diseño se realiza usando principios escalabilidad, mantenimiento y separación de responsabilidades.
+Consiste en el desarrollo de una aplicación de computadora que simula el juego un juego de mesa de estrategia basado en el legendario 'Sitrang'. El diseño se realiza usando principios escalabilidad, mantenimiento y separación de responsabilidades.
 
 El juego permitirá gestionar partidas, movimientos, validaciones de reglas, turnos de jugador, representación de mecánicas de juego.
 
