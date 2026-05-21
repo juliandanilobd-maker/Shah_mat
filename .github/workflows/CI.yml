@@ -2,14 +2,43 @@ name: CI pipeline
 
 on:
   push:
-    branches: [main, develop]
+    branches: 
+      - main
+      - develop
+      - "feature/*"
+
+  pull_request:
+    branches:
+      - develop
+      - main
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Clonar repositorio 
+        uses: actions/checkout@v4
 
-      - name: Verificar proyecto
-        run: echo "Proyecto en funcionamiento"
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Verificar formato con Black
+        run: |
+          black --check .
+
+      - name: Verificar estilo con Flake8
+        run: |
+          flake8 .
+
+      - name: Ejecutar pruebas unitarias
+        run: python -m pytest
+        env:
+          PYTHONPATH: ${{github.workspace}}
