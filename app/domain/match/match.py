@@ -1,6 +1,7 @@
-from app.domain.board.board import Board
-from app.domain.combat.combat_system import CombatSystem
+from app.application.services.combat_service import CombatService
+from app.application.services.movement_service import MovementService
 from app.domain.turn.turn_manager import TurnManager
+from app.domain.board.board import Board
 
 
 class Match:
@@ -8,9 +9,10 @@ class Match:
     def __init__(self, mode):
 
         self.mode = mode
-        self.board = Board()
-        self.combat = CombatSystem()
+        self.combat_service = CombatService()
+        self.movement_service = MovementService()
         self.turn_manager = TurnManager()
+        self.board = Board()
         self.finished = False
 
     def initialize(self):
@@ -19,16 +21,15 @@ class Match:
 
     def process_action(self, action):
 
-        if action["type"] == "MOVE":
-            return self.board.validate_move(action)
+        player = self.turn_manager.get_current_player()
+
+        if action["type"] == "DAMAGE":
+            return self.movement_service.validate_move(
+                self.board, action["damage"], player.name
+            )
 
         if action["type"] == "ATTACK":
-            return self.combat.prepare_attack(action)
-
-    def apply_result(self, result):
-
-        if result["type"] == "DAMAGE":
-            self.board.apply_damage(result)
+            return self.combat_service.attack(action["attacker"], action["defender"])
 
     def is_finished(self):
         return self.finished

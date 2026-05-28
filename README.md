@@ -11,8 +11,21 @@ El sistema permite gestionar partidas, movimientos, validaciones de reglas, turn
 
 ---
 # VISTA PRINCIPAL
-![Logo del Sistema](/Images/image-5.png)
-![Menú de inicio](/Images/image-6.png)
+![Logo del Sistema](/Images/LOGO.png)
+![Menú de inicio](/Images/MENU_INICIAL.png)
+
+---
+# INSTALACION
+
+## Prerequisitos
+- Necesitas instalar en tu sistema operativo python 3.10 en adelante
+
+## Clona el repositorio
+- https://github.com/juliandanilobd-maker/Shah_mat.git
+
+## Instala las dependencias necesarias
+- pip install -r requiremets.txt
+
 
 ---
 # ARQUITECTURA
@@ -270,8 +283,8 @@ El diseño permite futuras extensiones, tales como:
 
 ---
 # UML
-![Diagrama de Clase](/Images/image-1.png)
-![Diagrama de Caso de Uso](/Images/image-2.png)
-![Diagrama de Componentes](/Images/image-3.png)
-![Diagrama de Secuencia](/Images/image-4.png)
+![Diagrama de Clase](/Images/DIAGRAMA_DE_CLASES.png)
+![Diagrama de Caso de Uso](/Images/DIAGRAMA_DE_CASO_DE_USO.png)
+![Diagrama de Componentes](/Images/DIAGRAMA_DE_COMPONENTES.png)
+![Diagrama de Secuencia](/Images/DIAGRAMA_DE_SECUENCIA.png)
 
