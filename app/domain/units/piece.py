@@ -13,9 +13,21 @@ class Piece(ABC):
 
         self.owner = owner
         self.movement_range = movement_range
-        self.defense = defense
-        self.attack_value = attack_value
+        self._base_defense = defense
+        self._base_attack = attack_value
+        self._defense_modifier = 0
+        self._attack_modifier = 0
         self.state = HealthState.SHIELD
+
+    # Creamos una funcion que va a ser atributo base, en este caso defensa base
+    @property
+    def defense(self) -> int:
+        return self._base_defense + self._defense_modifier
+
+    # Creamos una funcion que se va a ser atributo base, en este caso ataque base
+    @property
+    def attack_value(self) -> int:
+        return self._base_attack + self._attack_modifier
 
     # Este decorador indica que las clases herederas están obligadas a escribir
     # su versión de este metodo
