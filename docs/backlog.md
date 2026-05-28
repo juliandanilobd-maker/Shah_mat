@@ -92,15 +92,15 @@ Como jugador, es necesario para jugar el juego, que las piezas se muevan en base
 ## Historia 3.2 - Interacciones de piezas
 
 ### Prioridad: ALTA.
-### Estado: PENDIENTE.
+### Estado: EN CURSO.
 
 #### Descripción
 Como desarrollador es necesario validar las reglas del juego, para mantener la coherencia con las interacciones.
 
 ### Criterios de aceptación
 - [] Detectar colisiones entre piezas (dos piezas una al lado).
-- [] Verificar los limites de daño, movilidad, alcance.
-- [] Aplica las reglas en las interacciones de las piezas.
+- [x] Verificar los limites de daño, movilidad, alcance.
+- [x] Aplica las reglas en las interacciones de las piezas.
 
 # EPICA 4 - Persistencia
 
