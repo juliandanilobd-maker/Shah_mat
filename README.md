@@ -15,6 +15,19 @@ El sistema permite gestionar partidas, movimientos, validaciones de reglas, turn
 ![Menú de inicio](/Images/MENU_INICIAL.png)
 
 ---
+# INSTALACION
+
+## Prerequisitos
+- Necesitas instalar en tu sistema operativo python 3.10 en adelante
+
+## Clona el repositorio
+- https://github.com/juliandanilobd-maker/Shah_mat.git
+
+## Instala las dependencias necesarias
+- pip install -r requiremets.txt
+
+
+---
 # ARQUITECTURA
 Sistema ha sido desarrollado bajo arquitectura modular por capas, aplicando principios de Programación Orientada a Objetos, Clean Architecture, y SOLID, con la finalidad de garantizar la escalabilidad, mantenibilidad y bajo acoplamiento.
 

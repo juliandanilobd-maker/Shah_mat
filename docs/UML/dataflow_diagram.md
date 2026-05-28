@@ -1,6 +1,6 @@
 # Diagrama de flujo de datos
 
-![Diagrama_de_flujo_de_datos](/Images//DIAGRAMA_DE_FLUJO_SHATRANJ.JPEG)
+![Diagrama_de_flujo_de_datos](/Images/DIAGRAMA_DE_FLUJO_SHAH_MAT.JPEG)
 
                   [ INPUT ]
                       │
