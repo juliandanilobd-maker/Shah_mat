@@ -41,4 +41,4 @@ jobs:
       - name: Ejecutar pruebas unitarias
         run: python -m pytest
         env:
-          PYTHONPATH: ${{github.workspace}}
+          PYTHONPATH: ${{ github.workspace }}

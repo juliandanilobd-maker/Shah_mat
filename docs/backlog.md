@@ -50,7 +50,7 @@ Como jugador, necesito ver el tablero para entender el juego.
 
 ### Criterios de aceptación
 - [] Renderizar tablero.
-- [] Mostrar posiciones.
+- [x] Mostrar posiciones.
 - [x] Actualizar el tablero.
 
 # EPICA 2 - Sistema de turnos
@@ -79,15 +79,15 @@ Generar la lógica y manejo de los movimientos de las piezas en el juego.
 ## Historia 3.1 - Primeros movimientos
 
 ### Prioridad: ALTA.
-### Estado: PENDIENTE.
+### Estado: COMPLETADO.
 
 #### Descripción
 Como jugador, es necesario para jugar el juego, que las piezas se muevan en base a reglas.
 
 ### Criterios de aceptación
-- [] Validar movimientos.
-- [] Detectar posiciones invalidas.
-- [] Actualizar el estado del tablero despues de un movimiento.
+- [x] Validar movimientos.
+- [x] Detectar posiciones invalidas.
+- [x] Actualizar el estado del tablero despues de un movimiento.
 
 ## Historia 3.2 - Interacciones de piezas
 

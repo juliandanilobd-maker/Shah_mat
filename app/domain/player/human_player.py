@@ -9,4 +9,4 @@ class HumanPlayer(Player):
 
         action_type = input("MOVE o ATTACK:")
 
-        return {"type": action_type.upper}
+        return {"type": action_type.upper()}

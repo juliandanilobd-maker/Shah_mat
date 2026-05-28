@@ -24,8 +24,7 @@ Sitrang/
 │   ├── ui/
 │   ├── application/
 │   ├── domain/
-│   ├── storage/
-│   ├── audiovisual/
+│   ├── infraestructure/
 │   └── assets/
 ├── .venv/
 ├── docs/
@@ -46,9 +45,13 @@ Esta capa se encarga de la itneracción del usuario con la interfaz.
 - Gestiona la navegación en la interfaz.
 
 ##### Componentes
-- MenuManager
-- Gamerender
-- InputHandler
+- Animations
+- Config
+- HUD
+- Menu
+- Rendering
+- Screens
+- Tutorial
 
 #### Capa de Aplicación
 Es la capa que coordina el flujo de la aplicación.
@@ -60,9 +63,9 @@ Es la capa que coordina el flujo de la aplicación.
 - Contecta la UI con la capa Dominio.
 
 ##### Componentes
-- GameService
-- TurnManager
-- MatchController
+- Controllers
+- Manager
+- Services
 
 #### Capa de Dominio
 Contiene todas las clases de piezas, reglas, la lógica que comanda el centro del juego, y las interacciones que tendrán las piezas entre si y con el terreno.
@@ -80,8 +83,12 @@ Contiene todas las clases de piezas, reglas, la lógica que comanda el centro de
 - Match.
 - Units.
 - Terrain.
+- Player.
+- Terrain.
+- Turn.
+- Rules.
 
-#### Capa de Almacenamiento
+#### Capa de Infraestructura
 Se encarga del guardado de los datos de mejores jugadores y sus puntajes.
 
 **RESPONSABILIDADES:**
@@ -90,26 +97,93 @@ Se encarga del guardado de los datos de mejores jugadores y sus puntajes.
 - Maneja los archivos txt.
 
 ##### Componentes
-- SaveManager.
-- FileRepository.
-- Serializer.
+- Local_storage.
+- Logs.
+- Repositories.
+- Serializers.
 
 
-#### Capa Audiovisual
-Gestiona la representación gráfica y sonora.
-
-
-**RESPONSABILIDADES:**
-- Renderizado.
-- Animaciones.
-- Audio.
-- Efectos visuales
-
-##### Componentes
-- GameRenderer.
-- AnimationManager.
-- AudioManager.
-- EffectManager.
-
-
+┌─────────────────────────────────────────────────────────────────────┐
+│                           CAPA UI                                   │
+│─────────────────────────────────────────────────────────────────────│
+│ Responsabilidad:                                                    │
+│ Interacción con el usuario y representación visual del juego.       │
+│                                                                     │
+│ Componentes:                                                        │
+│  • Animations                                                       │
+│  • Config                                                           │
+│  • HUD                                                              │
+│  • Menu                                                             │
+│  • Rendering                                                        │
+│  • Screens                                                          │
+│  • Tutorial                                                         │
+└─────────────────────────────────────────────────────────────────────┘
+                                │
+                                │ Inputs / Eventos
+                                ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    CAPA DE APLICACIÓN                               │
+│─────────────────────────────────────────────────────────────────────│
+│ Responsabilidad:                                                    │
+│ Coordinar el flujo general del juego y conectar UI con Dominio.     │
+│                                                                     │
+│ Componentes:                                                        │
+│  • Controllers                                                      │
+│  • Manager                                                          │
+│  • Services                                                         │
+│                                                                     │
+│ Funciones principales:                                              │
+│  • Gestionar partidas                                               │
+│  • Coordinar acciones                                               │
+│  • Controlar turnos                                                 │
+│  • Ejecutar servicios de movimiento y reglas                        │
+└─────────────────────────────────────────────────────────────────────┘
+                                │
+                                │ Lógica / Casos de uso
+                                ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                      CAPA DE DOMINIO                                │
+│─────────────────────────────────────────────────────────────────────│
+│ Responsabilidad:                                                    │
+│ Contener toda la lógica central y reglas del juego.                 │
+│                                                                     │
+│ Componentes:                                                        │
+│  • Board                                                            │
+│  • AI                                                               │
+│  • Combat                                                           │
+│  • Match                                                            │
+│  • Units                                                            │
+│  • Terrain                                                          │
+│  • Player                                                           │
+│  • Turn                                                             │
+│  • Rules                                                            │
+│                                                                     │
+│ Funciones principales:                                              │
+│  • Reglas del juego                                                 │
+│  • Movimiento de piezas                                             │
+│  • Validación de interacciones                                      │
+│  • Estado del tablero                                               │
+│  • Combate y turnos                                                 │
+└─────────────────────────────────────────────────────────────────────┘
+                                │
+                                │ Persistencia / Datos
+                                ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                  CAPA DE INFRAESTRUCTURA                           │
+│─────────────────────────────────────────────────────────────────────│
+│ Responsabilidad:                                                    │
+│ Manejar almacenamiento y persistencia de datos.                    │
+│                                                                     │
+│ Componentes:                                                        │
+│  • Local_storage                                                    │
+│  • Logs                                                             │
+│  • Repositories                                                     │
+│  • Serializers                                                      │
+│                                                                     │
+│ Funciones principales:                                              │
+│  • Guardar resultados                                               │
+│  • Cargar partidas                                                  │
+│  • Manejar archivos txt                                             │
+│  • Serializar datos                                                 │
+└─────────────────────────────────────────────────────────────────────┘
 
