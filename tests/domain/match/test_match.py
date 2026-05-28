@@ -1,3 +1,25 @@
+import pytest
+
+from app.domain.match.match import Match
+
+
+class FakePiece:
+    def __init__(self, owner="jugador1", defense=2, attack_value=5):
+        self.owner = owner
+        self.defense = defense
+        self.attack_value = attack_value
+
+    def recieve_attack(self, attack: int) -> bool:
+        return attack > self.defense
+
+
+@pytest.fixture
+def sample_match():
+    match = Match(mode="PVP")
+    match.initialize()
+    return match
+
+
 # Prueba para determinar si se inicializa la partida
 def test_match_initialization(sample_match):
 
@@ -13,13 +35,16 @@ def test_initialize_sets_board_and_players(sample_match):
 
 
 # Prueba para determinar si se procesa el movimiento de la pieza
-def test_process_move_action(sample_match):
+def test_process_attack_action(sample_match):
 
-    action = {"type": "MOVE"}
+    attacker = FakePiece(owner="jugador1", attack_value=5)
+    defender = FakePiece(owner="jugador2", defense=2)
+
+    action = {"type": "ATTACK", "attacker": attacker, "defender": defender}
 
     result = sample_match.process_action(action)
 
-    assert result["type"] == "MOVE_OK"
+    assert result["type"] == "DAMAGE"
 
 
 # Prueba para determinar que al iniciar una partida no se finaliza

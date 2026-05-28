@@ -23,13 +23,9 @@ class MatchController:
 
             self.match.board.render()
 
-            action = player.get_action()
-
-            result = self.match.process_action(action)
+            player.get_action()
 
             self.match.turn_manager.next_turn()
-
-            return result
 
         print("FIN DE LA PARTIDA")
         self.match.finish()
